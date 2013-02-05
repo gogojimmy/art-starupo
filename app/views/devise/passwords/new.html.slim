@@ -1,0 +1,14 @@
+#content
+  .container
+    .row
+      .span8
+        header.page-header
+          h1 忘記你的密碼？
+      .span4
+        .well
+          = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+            = devise_error_messages!
+            div
+              = f.input :email, :label => "電子郵件"
+              = f.submit t("devise.instructions.send_me_reset_password_instructions"), :class => 'btn btn-primary'
+          = render "devise/shared/links"

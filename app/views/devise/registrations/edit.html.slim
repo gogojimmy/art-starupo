@@ -1,0 +1,40 @@
+h2 #{t "devise.instructions.edit"} #{resource_name.to_s.humanize}
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+
+  div
+    = f.label :email
+    br
+    = f.email_field :email
+
+  div
+    = f.label :username
+    br
+    = f.text_field :username
+
+  div
+    = f.label :password
+      i ( #{t "devise.instructions.leave_blank_if_you_dont_want_to_change_it"})
+      br
+    = f.password_field :password, :autocomplete => "off"
+
+  div
+    = f.label :password_confirmation
+    br
+    = f.password_field :password_confirmation
+
+  div
+    = f.label :current_password
+      i (#{t "devise.instructions.we_need_your_current_password_to_confirm_your_changes"})
+      br
+    = f.password_field :current_password
+
+  div.form-actions
+    = f.submit t("devise.instructions.update"), :class => 'btn btn-primary'
+
+h3= t "deivse.instructions.cancel_my_account"
+
+p #{t "devise.instructions.unhappy"}? #{link_to t "devise.instructions.cancel_my_account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+
+= link_to t "deivse.instructions.back", :back

@@ -1,0 +1,7 @@
+p #{devise.instructions.hello} #{@resource.email} !
+
+p= t "devise.instructions.lock_account_because_invalid_access_counts"
+
+p= t "devise.instructions.click_link_below_to_unlick_account"
+
+p= link_to t 'devise.instructions.unlock_my_account', unlock_url(@resource, :unlock_token => @resource.unlock_token)
