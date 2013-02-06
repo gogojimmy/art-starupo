@@ -1,0 +1,43 @@
+.hero-unit
+  .container
+    h1 聯絡老師
+#main-content.container.clearfix
+  .row-fluid.reverse-order.contact-page
+    p.clearfix
+      = "聯絡老師..."
+    hr
+    .span5
+      p.right
+        a.icon-map-marker.various href="#" &nbsp;
+      p
+        strong 聯絡資訊
+        br
+        | blahblah
+        br
+        | 搭答答
+        br
+        strong 電話:
+        a.tele href="tel:123-123-123" 123-123-123
+        br
+        strong email:
+        a href="#" 123@123.com
+      h3.short_headline.margin-top
+        span 接收電子報
+      p 輸入您的Email來隨時接收關於老師的消息
+      .input-append
+        input.span6 type="email" placeholder="Email" name="email"
+        button.btn.btn-primary 送出
+      h3.short_headline.margin-top
+      ul.social
+        li.socion.facebook href="#" data-original-title="Facebook"
+        li.socion.twitterbird href="#" data-original-title="Twitter"
+        li.socion.linkedin href="#" data-original-title="Linkedin"
+        li.socion.dribbble href="#" data-original-title="dribble"
+    .span7
+      = simple_form_for @feedback, remote: true, html: { id: 'contact-form', class: 'form-vertical', novalidate: 'novalidate' } do |f|
+        fieldset
+          = f.input :name, label: "姓名", input_html: { class: 'span10' }
+          = f.input :phone, label: '電話', input_html: { class: 'span10' }
+          = f.input :email, label: 'Email', input_html: { class: 'span10' }
+          = f.input :message, label: '您的意見', input_html: { class: 'span10', rows: '3' }
+          = f.submit '送出', class: 'btn btn-primary btn-large submit-btn'

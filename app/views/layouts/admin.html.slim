@@ -35,7 +35,7 @@ html lang="zh_tw"
       ul#sidebar.nav.nav-pills.nav-stacked
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
-            i.micon-pencil
+            i.micon-picture
             span.hidden-phone 畫作
           ul.dropdown-menu
             li
@@ -46,5 +46,12 @@ html lang="zh_tw"
               = link_to admin_paintings_path do
                 = content_tag(:i, '', class: 'icon-list')
                 ' 畫作列表
+            li
+              = link_to admin_feedbacks_path do
+                = content_tag(:i, '', class: 'micon-mail')
+        li
+          = link_to admin_feedbacks_path do
+            i.micon-mail
+            span.hidden-phone 意見
     = javascript_include_tag "admin"
 

@@ -21,8 +21,8 @@
                 td
                   - painting.tags.each do |tag|
                     span.label.label-success.margin-right= tag.name
-                td= l painting.created_at, format: 'long'
-                td= l painting.updated_at, format: 'long'
+                td= l painting.created_at, format: :long
+                td= l painting.updated_at, format: :long
                 td.btn-group
                   = link_to edit_admin_painting_path(painting), :class => 'btn' do
                     = content_tag(:i, '', :class => 'icon icon-edit')

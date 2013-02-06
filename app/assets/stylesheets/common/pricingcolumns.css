@@ -22,11 +22,11 @@
 }
 .optionheader { margin: 0 }
 
-.features li:nth-child(even), 
+.features li:nth-child(even),
 .features li.even, .lt-ie9 .features li.even {
-	background-image: url(../images/7p.png);
+	background-image: url(<%= asset_path('/7p.png') %>);
 }
-.features li:nth-child(odd), 
+.features li:nth-child(odd),
 .features li.odd, .lt-ie9 .features li.odd {
 	background: transparent;
 }
@@ -36,7 +36,7 @@
 }
 .features:hover li {
     color:#fcf8e5;
-	background-image: url(../images/50p.png);
+	background-image: url(<%= asset_path('50p.png') %>);
 }
 .features li.detailsPop{
 	line-height:60px!important;
@@ -105,11 +105,11 @@
 .option4 .select a { background: #527f53; border-color: #527f53 }
 .option4 .title { background: #316232; border-color: #316232 }
 
-/*================================================ 
+/*================================================
 /* ## media queries > 768 px
 ================================================== */
 
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 768px) {
     .pricingTable ul {
         margin-left: 0;
         margin-right: 0;
