@@ -1,6 +1,7 @@
 = simple_form_for([:admin, @painting], html: { class: 'form-horizontal' }) do |f|
   = f.input :name, label: '畫作名稱'
   = f.input :image, label: '畫作'
+  = f.input :tag_list, label: '標籤', hint: '用逗號隔開不同標籤'
   = f.input :pub_year, label: '年份', as: :date
   = f.input :description, label: '畫作敘述'
   .form-actions

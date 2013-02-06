@@ -1,0 +1,18 @@
+.hero-unit
+  .container
+    h2= @painting.name
+#main-content.container.clearfix
+  .row-fluid.portfolio-detail
+    .span7.offset1.image-slider
+      = image_tag(@painting.image.url)
+    section.span4.project-description role="project-description"
+      = simple_format @painting.description
+      h6 年份：
+      p
+        = @painting.pub_year.year
+      h6 標籤：
+      p
+        - @painting.tags.each do |tag|
+          = link_to tag_path(tag.name) do
+            = tag.name
+            | ,

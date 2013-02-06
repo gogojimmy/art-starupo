@@ -16,16 +16,18 @@
           tbody
             - @paintings.each do |painting|
               tr
-                td
+                td= image_tag(painting.image.url(:thumb))
                 td= painting.pub_year.year
                 td
+                  - painting.tags.each do |tag|
+                    span.label.label-success.margin-right= tag.name
                 td= l painting.created_at, format: 'long'
                 td= l painting.updated_at, format: 'long'
                 td.btn-group
                   = link_to edit_admin_painting_path(painting), :class => 'btn' do
                     = content_tag(:i, '', :class => 'icon icon-edit')
                     '  編輯
-                  = link_to admin_painting_path(painting), method: :delete, confirm: '確認要刪除嗎？' do
+                  = link_to admin_painting_path(painting), method: :delete, data: { confirm: '確認要刪除嗎？' } do
                     = content_tag(:i, '', class: 'icon icon-remove')
       = will_paginate @paintings
 
