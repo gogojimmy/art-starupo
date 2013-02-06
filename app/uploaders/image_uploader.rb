@@ -11,11 +11,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :usual do
-    process :resize_to_limit => [300, 300]
+    process :resize_to_limit => [300, 0]
   end
 
   version :thumb do
-    process :resize_to_limit => [100, 100]
+    process :resize_to_limit => [100, 0]
+  end
+
+  version :for_index do
+    process :resize_to_limit => [0, 350]
+
   end
 
 end
