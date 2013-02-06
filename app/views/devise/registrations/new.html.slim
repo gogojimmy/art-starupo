@@ -1,23 +1,13 @@
-#content
-  .container
-    .row
-      .registration-description.span8
-        header.page-header
-          h1 註冊專利平台
-        .description
-          span class="lipsum(15,15)"
-      .registration-form.span4
-        .well
-          = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-            = devise_error_messages!
-            div
-              = f.input :email, :label => "電子郵件"
-            div
-              = f.input :username, :label => "使用者名稱"
-            div
-              = f.input :password, :label => "密碼"
-            div
-              = f.input :password_confirmation, :label => t('devise.instructions.password_confirmation')
-            div
-              = f.button :submit, t("devise.instructions.sign_up"), :class => "btn btn-primary pull-right"
-            .clearfix
+#main-content.container.clearfix
+  .row-fluid
+    .register-box.clearfix
+      h2.short_headline
+        span 註冊
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal', id: 'registration-form' }) do |f|
+        = devise_error_messages!
+        .fieldset
+          = f.input :email, :label => "電子郵件"
+          = f.input :password, :label => "密碼"
+          = f.input :password_confirmation, :label => t('devise.instructions.password_confirmation')
+          .form-actions
+            = f.button :submit, t("devise.instructions.sign_up"), :class => "btn btn-primary btn-large"

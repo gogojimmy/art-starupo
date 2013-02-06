@@ -9,11 +9,6 @@ h2 #{t "devise.instructions.edit"} #{resource_name.to_s.humanize}
     = f.email_field :email
 
   div
-    = f.label :username
-    br
-    = f.text_field :username
-
-  div
     = f.label :password
       i ( #{t "devise.instructions.leave_blank_if_you_dont_want_to_change_it"})
       br

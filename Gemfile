@@ -26,6 +26,13 @@ gem 'devise'
 gem 'slim'
 gem 'compass-rails'
 gem 'devise'
+gem 'fancybox2-rails', '~> 0.2.1'
+gem 'simple_form'
+gem 'awesome_print'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'will_paginate'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem "better_errors"

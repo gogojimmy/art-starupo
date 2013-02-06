@@ -1,0 +1,27 @@
+#main-content.container.clearfix
+  = will_paginate(@paintings, class: 'pagination-right no-margin pagination-mini')
+  .row-fluid
+    .filter-box.clearfix
+      span#filter
+        | 標籤
+        i.icon-sort
+      ul.sort#option
+        li.first
+          a.active href="#" data-filter="*" 全部
+        - @tags.each do |tag|
+          li= link_to tag.name, "#", data: { filter: ".#{tag.name}" }
+    ul.gallery.four_col.clearfix.isotope
+      - @paintings.each do |painting|
+        li class="item #{painting.tags.map(&:name)*" "}"
+          = link_to painting_path(painting), class: 'hover' do
+            = image_tag(painting.image.url(:usual))
+            span.plus
+          .entry-summary
+            h4= painting.name
+            = simple_format painting.description
+            .categories
+              - painting.tags.each do |tag|
+                = link_to tag.name, tag_path(tag.name)
+                | ,
+
+  = will_paginate(@paintings, class: 'pagination-centered no-margin pagination-footer pagination-mini')

@@ -1,5 +1,15 @@
 Art::Application.routes.draw do
   devise_for :admins
+  root to: 'welcome#index'
+
+  resources :paintings, only: [:index, :show]
+
+  namespace :admin do
+    resources :paintings
+  end
+
+  get 'tags/:tag', to: 'paintings#index', as: :tag
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

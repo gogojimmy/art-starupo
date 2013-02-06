@@ -1,0 +1,48 @@
+| <!doctype html>
+/![if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr">
+/![if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr">
+/![if IE 8] <html class="no-js lt-ie9" lang="en" dir="ltr">
+/! [if gt IE 8]><!
+html.no-js dir="ltr" lang="zh_tw"
+  /! <![endif]
+  head
+    title 陳正雄老師個人藝廊
+    /! Meta Data ================
+    meta charset="UTF-8"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    meta content="yes" name="apple-mobile-web-app-capable"
+    /! CSS ================
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+  body.index
+    /! begin accesibility skip to nav skip content
+    ul.visuallyhidden#top
+      li
+        a href="#nav" title="Skip to navigation" accesskey="n" Skip to navigation
+      li
+        a href="#page" title="Skip to content" accesskey="c" Skip to content
+    /! mobile navigation trigger
+    h5.mobile_nav
+      a href="javascript:void(0)"
+        | &nbsp;
+        span
+    /! begin .header
+    section.container.preheader
+    header.header.clearfix
+      = image_tag(asset_path('print-logo.png'), alt: '陳正雄老師個人藝廊', class: 'print logo')
+      .container
+        /! begin #main_menu
+        = render 'shared/main_menu'
+        /! begin #logo
+        #logo
+          a href="index.html"
+            = image_tag(asset_path('trans.gif'))
+            em Crisp Responsive HTML Retina Ready Bootstrap Goodness
+            /! effing ie7 support
+    /! begin #page - the container for everything but header
+    #page
+      = yield
+      span.backToTop
+        a href="#" 回到頁首
+    = javascript_include_tag "application"
+
