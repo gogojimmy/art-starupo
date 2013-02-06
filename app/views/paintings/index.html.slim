@@ -1,0 +1,16 @@
+#main-content.container.clearfix
+  = will_paginate(@paintings, class: 'pagination-right no-margin pagination-mini')
+  .row-fluid
+    .filter-box.clearfix
+    ul.gallery.four_col.clearfix.isotope
+      - @paintings.each do |painting|
+        li.item
+          = link_to painting_path(painting), class: 'hover' do
+            = image_tag(painting.image.url(:usual))
+            span.plus
+          .entry-summary
+            h4= painting.name
+            = simple_format painting.description
+            .categories
+
+  = will_paginate(@paintings, class: 'pagination-centered no-margin pagination-footer pagination-mini')
