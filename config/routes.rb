@@ -11,6 +11,7 @@ Art::Application.routes.draw do
   end
 
   get 'tags/:tag', to: 'paintings#index', as: :tag
+  get '/about', to: 'welcome#about'
 
   resources :feedbacks, only: [:new, :create]
   resources :posts, only: [:show, :index]
