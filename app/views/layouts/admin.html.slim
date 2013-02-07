@@ -46,9 +46,19 @@ html lang="zh_tw"
               = link_to admin_paintings_path do
                 = content_tag(:i, '', class: 'icon-list')
                 ' 畫作列表
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            i.micon-broadcast
+            span.hidden-phone 最新消息
+          ul.dropdown-menu
             li
-              = link_to admin_feedbacks_path do
-                = content_tag(:i, '', class: 'micon-mail')
+              = link_to new_admin_post_path do
+                = content_tag(:i, '', class: 'micon-plus')
+                ' 新增最新消息
+            li
+              = link_to admin_posts_path do
+                = content_tag(:i, '', class: 'icon-list')
+                ' 最新消息列表
         li
           = link_to admin_feedbacks_path do
             i.micon-mail
