@@ -7,11 +7,13 @@ Art::Application.routes.draw do
   namespace :admin do
     resources :paintings
     resources :feedbacks
+    resources :posts
   end
 
   get 'tags/:tag', to: 'paintings#index', as: :tag
 
   resources :feedbacks, only: [:new, :create]
+  resources :posts, only: [:show, :index]
 
 
   # The priority is based upon order of creation:

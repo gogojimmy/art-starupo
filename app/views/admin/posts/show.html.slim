@@ -1,0 +1,10 @@
+.row-fluid
+  .span12
+    .well.widget
+      .widget-header
+        h3= @post.title
+        .widget-nav
+          ul.nav.nav-pills
+            li= link_to '編輯', edit_admin_post_path(@post)
+      .widget-content
+        = simple_format @post.content

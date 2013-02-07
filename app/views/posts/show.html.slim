@@ -1,0 +1,27 @@
+.container.visible-phone.hidden-tablet.hidden-desktop
+  p.right
+    a.btn.btn-primary href="#secondary-nav"
+      | 最新消息
+      i.icon-align-justify
+.hero-unit
+  .container
+    h2 最新消息
+#main-content.container.clearfix
+  .row-fluid.sidebar-right
+    .span9.blog-summary.primary-column
+      article.entry-post
+        header.entry-header
+          h3.entry-title
+            = link_to @post.title, post_path(@post)
+          .byline
+            i.icon-time
+            abbr.published title="#{@post.created_at}"= l @post.created_at, format: :short
+            | &nbsp;&nbsp;
+        .entry-content
+          = simple_format @post.content
+        footer.entry-footer
+          span.blog.date
+            span.month= l @post.created_at, format: '%b'
+            span.day= l @post.created_at, format: '%d'
+            span.year= l @post.created_at, format: '%y'
+    = render 'sidebar'
