@@ -4,4 +4,8 @@ class WelcomeController < ApplicationController
     @paintings = Painting.last(5)
   end
 
+  def about
+
+  end
+
 end

@@ -29,15 +29,14 @@ html.no-js dir="ltr" lang="zh_tw"
     /! begin .header
     section.container.preheader
     header.header.clearfix
-      = image_tag(asset_path('print-logo.png'), alt: '陳正雄老師個人藝廊', class: 'print logo')
       .container
         /! begin #main_menu
         = render 'shared/main_menu'
         /! begin #logo
-        #logo
-          a href="index.html"
-            = image_tag(asset_path('trans.gif'))
-            em Crisp Responsive HTML Retina Ready Bootstrap Goodness
+        /#logo
+          /a href="/"
+            /= image_tag(asset_path('trans.gif'))
+            /em Crisp Responsive HTML Retina Ready Bootstrap Goodness
             /! effing ie7 support
     /! begin #page - the container for everything but header
     #page
