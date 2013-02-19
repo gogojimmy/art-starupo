@@ -1,6 +1,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./common
+//= require isotope/jquery.isotope.min
+//= require isotope/isotope_custom
+//= require fancybox
+//= require_self
 
 // You can take this refresh out as most people don't resize their page, this is for the demo
 /*================================================================*/

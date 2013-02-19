@@ -48,6 +48,19 @@ html lang="zh_tw"
                 ' 畫作列表
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
+            i.micon-user
+            span.hidden-phone 作家
+          ul.dropdown-menu
+            li
+              = link_to new_admin_author_path do
+                = content_tag(:i, '', class: 'micon-plus')
+                ' 新增作家
+            li
+              = link_to admin_authors_path do
+                = content_tag(:i, '', class: 'icon-list')
+                ' 作家列表
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
             i.micon-broadcast
             span.hidden-phone 最新消息
           ul.dropdown-menu

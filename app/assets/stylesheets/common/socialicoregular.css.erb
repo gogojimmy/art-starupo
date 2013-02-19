@@ -4,11 +4,11 @@
 /* http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax*/
 
 @font-face {font-family: "SocialicoRegular";
-  src: url('../font/socialico-webfont.eot');
-  src: url('../font/socialico-webfont.eot?#iefix') format('eot'),
-	url('../font/socialico-webfont.woff') format('woff'),
-	url('../font/socialico-webfont.ttf') format('truetype'),
-    url('../font/socialico-webfont.svg#SocialicoRegular') format('svg');
+  src: url('<%= asset_path('socialico-webfont.eot') %>');
+  src: url('<%= asset_path('socialico-webfont.eot?#iefix') %>') format('eot'),
+  url('<%= asset_path('socialico-webfont.woff') %>') format('woff'),
+  url('<%= asset_path('socialico-webfont.ttf') %>') format('truetype'),
+  url('<%= asset_path('socialico-webfont.svg#SocialicoRegular') %>') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -229,4 +229,4 @@ li[class^="socicon"].large:before, li[class*=" socicon"].large:before {
 .lt-ie8 .youtubecircle.socicon  {zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#120'); }
 .lt-ie8 .yahoocircle.socicon  {zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#121'); }
 .lt-ie8 .aolcircle.socicon  {zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#122'); }
-  
+

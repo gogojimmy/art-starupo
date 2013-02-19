@@ -8,6 +8,7 @@ Art::Application.routes.draw do
     resources :paintings
     resources :feedbacks
     resources :posts
+    resources :authors
   end
 
   get 'tags/:tag', to: 'paintings#index', as: :tag
@@ -15,6 +16,7 @@ Art::Application.routes.draw do
 
   resources :feedbacks, only: [:new, :create]
   resources :posts, only: [:show, :index]
+  resources :authors, only: [:show]
 
 
   # The priority is based upon order of creation:

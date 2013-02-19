@@ -1,0 +1,11 @@
+.span3
+  .well.widget
+    .widget-header
+    .widget-content
+      = image_tag(@author.avatar.url(:normal))
+.span9
+  .well.widget
+    .widget-header
+      h3= @author.name
+    .widget-content
+      = simple_format @author.description

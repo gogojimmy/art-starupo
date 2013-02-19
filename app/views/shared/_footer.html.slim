@@ -1,0 +1,57 @@
+#footer.clearfix
+  .container
+    .row-fluid
+      .span4
+        section
+          h4 聯絡凱華
+          p
+            | 凱華藝術投資
+            br
+            | 地址地址
+            br
+            strong 電話：
+            a.tele href="tel:123-123123" (02)123-123123
+            br
+            strong 傳真：
+            | (02)123-123
+            br
+            strong email：
+            a href="mailto:kate@startupo.cc" kate@startupo.cc
+        section
+          h4 追蹤我們
+          ul.social
+            li
+              a.socicon.rss href="#" data-original-title="RSS"
+            li
+              a.socicon.facebook href="#" data-original-title="Twitter"
+            li
+              a.socicon.twitterbird href="#" data-original-title="RSS"
+            li
+              a.socicon.linkedin href="#" data-original-title="LinkedIn"
+      .span4
+        section
+          h4 訂閱電子報
+          p 隨時接收來自凱華藝術投資的最新消息，我們不會任意散佈您的Email
+          form
+            .input-append
+              input.span6 type="email" placeholder="kate@startupo.cc" name="email"
+              button.btn.btn-primary 送出
+        section
+          h4 配合作者
+          ul.image-widget.clearfix
+            - footer_authors.each do |author|
+              li= link_to image_tag(author.avatar.url(:thumb), alt: author.name)
+      .span4
+        section
+          h4 最新消息
+          ul.footerPosts
+            - footer_posts.each do |post|
+              li
+                = link_to post.title, post_path(post)
+                span.meta= l post.created_at, format: :long
+  section.footerCredits
+    .container
+      ul.clearfix
+        li © 2012 凱華藝術投資. All rights reserved.
+        li= link_to '網站地圖', '#'
+        li.last= link_to '隱私權聲明', '#'

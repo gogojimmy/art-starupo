@@ -9,10 +9,21 @@
       = simple_format @painting.description
       h6 年份：
       p
-        = @painting.pub_year.year
+        = @painting.pub_year
       h6 標籤：
       p
         - @painting.tags.each do |tag|
           = link_to tag_path(tag.name) do
             = tag.name
             | ,
+      h6 作者：
+      p
+        = link_to @painting.author_name, author_path(@painting.author)
+    .row-fluid.related
+      h3.span5 #{@painting.author_name}的其他作品：
+      .span7
+        ul
+          - @painting.related_paintings.each do |painting|
+            li style="background-image:url(#{painting.image.url(:thumb)})"
+              a title="#{painting.name}" href="#{painting_path(painting)}"
+

@@ -23,5 +23,6 @@
               - painting.tags.each do |tag|
                 = link_to tag.name, tag_path(tag.name)
                 | ,
+            span.credit= link_to painting.author_name, author_path(painting.author)
 
   = will_paginate(@paintings, class: 'pagination-centered no-margin pagination-footer pagination-mini')
