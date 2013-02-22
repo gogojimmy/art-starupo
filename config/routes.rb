@@ -1,4 +1,24 @@
 Art::Application.routes.draw do
+  devise_for :admins
+  root to: 'welcome#index'
+
+  resources :paintings, only: [:index, :show]
+
+  namespace :admin do
+    resources :paintings
+    resources :feedbacks
+    resources :posts
+    resources :authors
+  end
+
+  get 'tags/:tag', to: 'paintings#index', as: :tag
+  get '/about', to: 'welcome#about'
+
+  resources :feedbacks, only: [:new, :create]
+  resources :posts, only: [:show, :index]
+  resources :authors, only: [:show]
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

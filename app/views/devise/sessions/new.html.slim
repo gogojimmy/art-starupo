@@ -1,0 +1,15 @@
+#main-content.container.clearfix
+  .row-fluid
+    .register-box.clearfix
+      h2.short_headline
+        span 註冊
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal', id: 'registration-form' }) do |f|
+        .fieldset
+          = f.input :email, :label => "登入", :placeholder => "email"
+          = f.input :password, :label => t('devise.instructions.password')
+          -if devise_mapping.rememberable?
+            = f.input :remember_me, :as => :boolean, :label => I18n.t('devise.instructions.remember_me')
+          .form-actions
+            = f.button :submit, t("devise.instructions.sign_in"), :class => 'btn btn-primary'
+        hr
+        = render "devise/shared/links"

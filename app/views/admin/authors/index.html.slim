@@ -1,0 +1,30 @@
+.row-fluid
+  .span12
+    table.table.table-striped.table-bordered.table-condensed
+      thead
+        tr
+          th 作者
+          th 作品數
+          th 敘述
+          th 建立時間
+          th 更新時間
+          th 操作
+      tbody
+        - @authors.each do |author|
+          tr
+            td= author.name
+            td= author.paintings.count
+            td= author.description
+            td= l author.created_at, format: :long
+            td= l author.updated_at, format: :long
+            td
+              .btn-group
+                = link_to edit_admin_author_path(author), :class => 'btn' do
+                  = content_tag(:i, '', :class => 'icon icon-edit')
+                  '  編輯
+                = link_to admin_author_path(author), method: :delete, data: { confirm: '確認要刪除嗎？' }, class: 'btn btn-danger' do
+                  = content_tag(:i, '', class: 'icon icon-remove')
+                  '  刪除
+  = will_paginate @authors
+
+

@@ -1,0 +1,33 @@
+.hero-unit
+  .container
+    h2= @author.name
+.container.clearfix#main-content
+  .row-fluid.portfolio-detail
+    .span7.offset1.image-slider role="image-slider"
+      #carousel.flexslider
+        .flex-viewport
+          ul.slides
+            - @author.paintings.each do |painting|
+              li style="background-image: url(#{painting.image.url(:thumb)});"
+                = image_tag(asset_path("trans.gif"))
+        ul.flex-direction-nav
+          li= link_to '上一張', '#', class: 'flex-prev flex-disabled'
+          li= link_to '下一張', '#', class: 'flex-next'
+      #slider.flexslider
+        .flex-viewport
+          ul.slides
+            - @author.paintings.each do |painting|
+              li
+                = link_to "觀看全尺寸", painting.image.url, data: { fancybox_group: 'portfolio' }, class: 'zoom-image fancyme'
+                = image_tag(painting.image.url)
+        ul.flex-direction-nav
+          li= link_to '上一張', '#', class: 'flex-prev flex-disabled'
+          li= link_to '下一張', '#', class: 'flex-next'
+
+
+    section.span4.project-description role="project-description"
+      h6 簡介：
+      p
+        = markdown @author.description
+= content_for(:additional_js) do
+  = javascript_include_tag 'fancybox_init'

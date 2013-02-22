@@ -1,0 +1,22 @@
+section.span3.sidebar.secondary-column
+  aside.widget
+    h5.short_headline
+      span 搜尋
+    form.searchform
+      input.span12 type="search" value="搜尋" onfocus="this.value=''" onblur="this.value='搜尋"
+  aside.widget
+    h5.short_headline
+      span 最新文章
+    .sidebar-tabs data-easytabs="true"
+      .panels
+        #tab-latest.active
+          ul.blogposts.clearfix
+            - @latest.each do |post|
+              li
+                span.date
+                  span.month= l post.created_at, format: '%b'
+                  span.day= l post.created_at, format: '%d'
+                  span.year= l post.created_at, format: '%y'
+                h3
+                  = link_to post.title, post_path(post)
+                = link_to truncate(post.content, length: 50)

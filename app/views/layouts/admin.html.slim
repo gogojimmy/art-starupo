@@ -1,0 +1,80 @@
+doctype html
+html lang="zh_tw"
+  head
+    title 凱華藝術投資管理後台
+    = stylesheet_link_tag    "admin"
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width" initial-scale="1.0"
+    meta charset="UTF-8"
+    / [if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  body
+    /!-- header
+    #header.navbar
+      .navbar-inner
+        a.brand.hidden-phone href="/" 凱華藝術投資管理後台
+    #left_layout
+      /!-- main content
+      #main_content.container-fluid
+        /!-- page heading
+        section.container-fluid
+          .row-fluid
+            - flash.each do |name, msg|
+              div{class="alert alert-#{name == :notice ? "success" : "error"} fade in"}
+                a.close data-dismiss="alert" &times;
+                = simple_format(msg)
+        .page-heading
+          h2.page-title.muted
+            i.icon-dashboard
+            | 主控台
+          .page-info.hidden-phone
+        /!-- post wrapper
+        .row-fluid
+          = yield
+      /!-- sidebar
+      ul#sidebar.nav.nav-pills.nav-stacked
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            i.micon-picture
+            span.hidden-phone 畫作
+          ul.dropdown-menu
+            li
+              = link_to new_admin_painting_path do
+                = content_tag(:i, '', class: 'micon-plus')
+                ' 新增畫作
+            li
+              = link_to admin_paintings_path do
+                = content_tag(:i, '', class: 'icon-list')
+                ' 畫作列表
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            i.micon-user
+            span.hidden-phone 作家
+          ul.dropdown-menu
+            li
+              = link_to new_admin_author_path do
+                = content_tag(:i, '', class: 'micon-plus')
+                ' 新增作家
+            li
+              = link_to admin_authors_path do
+                = content_tag(:i, '', class: 'icon-list')
+                ' 作家列表
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            i.micon-broadcast
+            span.hidden-phone 最新消息
+          ul.dropdown-menu
+            li
+              = link_to new_admin_post_path do
+                = content_tag(:i, '', class: 'micon-plus')
+                ' 新增最新消息
+            li
+              = link_to admin_posts_path do
+                = content_tag(:i, '', class: 'icon-list')
+                ' 最新消息列表
+        li
+          = link_to admin_feedbacks_path do
+            i.micon-mail
+            span.hidden-phone 意見
+    = javascript_include_tag "admin"
+

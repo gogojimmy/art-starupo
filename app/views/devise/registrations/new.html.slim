@@ -1,0 +1,13 @@
+#main-content.container.clearfix
+  .row-fluid
+    .register-box.clearfix
+      h2.short_headline
+        span 註冊
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal', id: 'registration-form' }) do |f|
+        = devise_error_messages!
+        .fieldset
+          = f.input :email, :label => "電子郵件"
+          = f.input :password, :label => "密碼"
+          = f.input :password_confirmation, :label => t('devise.instructions.password_confirmation')
+          .form-actions
+            = f.button :submit, t("devise.instructions.sign_up"), :class => "btn btn-primary btn-large"
