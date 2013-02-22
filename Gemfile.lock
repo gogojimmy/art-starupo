@@ -101,6 +101,10 @@ GEM
       net-ssh (>= 1.99.1)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
+    pygments.rb (0.3.7)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -126,6 +130,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.2.2)
     rmagick (2.13.1)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
@@ -173,6 +178,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.4)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -192,7 +198,9 @@ DEPENDENCIES
   fancybox2-rails (~> 0.2.4)
   jquery-rails
   mysql2
+  pygments.rb
   rails (= 3.2.11)
+  redcarpet
   rmagick
   rspec-rails
   rvm-capistrano

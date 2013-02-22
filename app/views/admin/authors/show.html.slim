@@ -7,5 +7,11 @@
   .well.widget
     .widget-header
       h3= @author.name
+      .widget-nav
+        .dropdown.nav-item
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            i.icon-cog
+          ul.dropdown-menu.pull-right
+            li= link_to '編輯', edit_admin_author_path(@author)
     .widget-content
-      = simple_format @author.description
+      = markdown @author.description

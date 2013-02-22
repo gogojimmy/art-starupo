@@ -28,6 +28,6 @@
     section.span4.project-description role="project-description"
       h6 簡介：
       p
-        = simple_format @author.description
+        = markdown @author.description
 = content_for(:additional_js) do
   = javascript_include_tag 'fancybox_init'
