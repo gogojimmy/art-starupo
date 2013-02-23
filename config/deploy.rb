@@ -1,13 +1,12 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 require 'capistrano_colors'
-require "delayed/recipes"
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 
 set :rvm_ruby_string, 'ruby-1.9.3-p194'
 
-set :application, "startupo"
+set :application, "art"
 set :repository,  "git@github.com:gogojimmy/art-starupo.git"
 
 set :scm, :git
@@ -29,8 +28,32 @@ namespace :deploy do
   end
 
   task :custom_setup, :roles => [:app] do
-    run "cp #{shared_path}/config/*.yml #{release_path}/config/"
+    run "cp -fR #{shared_path}/config/*.yml #{release_path}/config/"
   end
+
+  task :setup_config, roles: :app do
+    #sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    #sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    run "mkdir -p #{shared_path}/config"
+    run_locally "rsync -vr --exclude='.DS_Store' config/*.example #{user}@#{domain}:#{shared_path}/config/"
+    puts "Now edit the config files in #{shared_path}."
+  end
+  after "deploy:setup", "deploy:setup_config"
+
+  task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/config/* #{release_path}/config/"
+  end
+  after "deploy:finalize_update", "deploy:symlink_config"
+
+  desc "Make sure local git is in sync with remote."
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts "WARNING: HEAD is not the same as origin/master"
+      puts "Run `git push` to sync changes."
+      exit
+    end
+  end
+  before "deploy", "deploy:check_revision"
 
   desc "reload the database with seed data"
   task :seed do
@@ -52,6 +75,13 @@ namespace :deploy do
       else
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
+    end
+  end
+  task :refresh_sitemap, :roles => :app do
+    if stage.to_s == "production"
+      run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
+    else
+      logger.info "Skipping refresh sitemap because it's only for production"
     end
   end
 end
@@ -92,13 +122,8 @@ namespace :mysql do
   end
 end
 
-before "deploy:assets:precompile", "deploy:custom_setup"
 before 'deploy:setup', 'rvm:install_rvm'
+after 'rvm:install_rvm', 'rvm:install_ruby'
 after "deploy", "deploy:cleanup"
 after "deploy:migrations", "deploy:cleanup"
-after "deploy:migrations", "deploy:generate_yard"
 after "mysql:sync", "mysql:backup", "mysql:import"
-after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
-

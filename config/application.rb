@@ -65,5 +65,19 @@ module Art
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+    config.assets.precompile += [ 'application.css',
+                                  'admin.js',
+                                  'fancybox_init.js',
+                                  'modernizr.custom.87724.js',
+                                  'application.js',
+                                  'admin.css']
+    $EMAIL_CONFIG = ActiveSupport::HashWithIndifferentAccess.new YAML.load(File.open("#{Rails.root}/config/email.yml"))[Rails.env]
+
+    config.action_mailer.default_url_options = { :host => $EMAIL_CONFIG[:host] }
+
+    # convert hash's keys from string to symbol, or it would raise error
+    config.action_mailer.smtp_settings = $EMAIL_CONFIG[:smtp].symbolize_keys if !$EMAIL_CONFIG[:smtp].nil?
+
   end
 end
