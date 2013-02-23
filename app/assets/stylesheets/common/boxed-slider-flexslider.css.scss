@@ -20,7 +20,7 @@
 .boxed-slider-wrapper {
     position: relative;
     clear: both;
-    background: url(<%= asset_path('7p.png') %>) fixed;
+    background: url(asset-path('7p.png', image)) fixed;
     margin: 30px 0 3% 0;
     padding: 10px 60px 10px 60px;
 }
@@ -31,7 +31,7 @@
 	position:absolute;
 	top:5%;
 	left:0;
-	background: url(<%= asset_path('80pwhite.png') %>) fixed;
+	background: url(asset-path('80pwhite.png', image)) fixed;
 	padding:15px;
 	width:35%;
 }
@@ -59,7 +59,7 @@
     top: 40%;
     width: 40px;
     height: 80px;
-    background:url(<%= asset_path('sliderarrows.png') %>) -140px 50% no-repeat;
+    background:url(asset-path('sliderarrows.png', image)) -140px 50% no-repeat;
 }
 .boxed-slider.flexslider .flex-direction-nav a.flex-prev {
     left: 8px;
@@ -142,7 +142,7 @@
     }
 	.boxed-slider.flexslider .img img {
 		width:auto;
-		max-width 100%;
+		max-width: 100%;
 		margin:0 auto;
 	}
     .boxed-slider.flexslider .caption h2 {
@@ -199,7 +199,7 @@
 
 .boxed-slider.flexslider .flex-direction-nav a.flex-next,
 .boxed-slider.flexslider .flex-direction-nav a.flex-prev {
-    background-image:url(<%= asset_path('retina/sliderarrows_@2x.png') %>);
+    background-image:url( asset-path('retina/sliderarrows_@2x.png', image));
 			-moz-background-size:360px 100px;
              -ie-background-size:360px 100px;
               -o-background-size:360px 100px;

@@ -18,10 +18,10 @@ body.tall-logo nav.user {margin-left:180px;}
     float: left;
     position:relative;
     margin-top:18px;
-    background:url(<%= asset_path('logo.png') %>) no-repeat;
+    background:url(asset-path('logo.png', image)) no-repeat;
 }
 /* ie 7 fix*/
-.lt-ie8 #logo {position:absolute!important:top:0;left:0;}
+.lt-ie8 #logo {position:absolute !important; top:0; left:0;}
 
 
 #logo em {
@@ -52,7 +52,7 @@ body.tall-logo nav.user {margin-left:180px;}
     margin-top:0;
     padding:0;
     top:-47px;
-    background-image:url(<%= asset_path('tall-logo-desktop.png') %>);
+    background-image:url(asset-path('tall-logo-desktop.png', image));
     background-color:transparent;
     background-position:50% 50%;
     background-repeat: no-repeat;
@@ -96,11 +96,11 @@ body.tall-logo nav.user {margin-left:180px;}
     height:30px;
     position:relative;
     top:3px;
-    background:url(<%= asset_path('search.png') %>) 0px 50% no-repeat;
+    background:url(asset-path('search.png', image)) 0px 50% no-repeat;
 	cursor:pointer
 }
 .search #search-trigger.active{
-  background:url(<%= asset_path('search.png') %>) -30px 50% no-repeat;
+  background:url(asset-path('search.png', image)) -30px 50% no-repeat;
 }
 .search input {
 	background-color:#fcf8e5;
@@ -168,7 +168,7 @@ body.tall-logo nav.user {margin-left:180px;}
     top: 0;
 }
 #main_menu li.parent i {
-  background:url(<%= asset_path('menu_arrow.png') %>) 0 0 no-repeat;
+  background:url(asset-path('menu_arrow.png', image)) 0 0 no-repeat;
 	display:inline-block;
 	width:5px;
 	margin-left:8px;
@@ -407,7 +407,7 @@ body.tall-logo nav.user {margin-left:0;}
 }
 /* tall header for taller logo mobile */
 .tall-logo #logo {
-  background-image: url(<%= asset_path('tall-logo-mobile.png') %>); /*notice that this image changes on mobile */
+  background-image: url(asset-path('tall-logo-mobile.png', image)); /*notice that this image changes on mobile */
     background-color: transparent!important;
     background-position:0 0;
     position: relative;
@@ -488,7 +488,7 @@ body.tall-logo nav.user {margin-left:0;}
     position: absolute;
     left: 10px;
     top: 0px;
-    background: url(<%= asset_path('navtriggerbg.png') %>) -20px 50% no-repeat;
+    background: url(asset-path('navtriggerbg.png', image)) -20px 50% no-repeat;
 }
 .mobile_nav a.active span {
     background-position: -60px 50%
@@ -604,7 +604,7 @@ body.tall-logo nav.user {margin-left:0;}
 
 
 #logo {
-  background-image:url(<%= asset_path('retina/logo_@2x.png') %>);
+  background-image:url(asset-path('retina/logo_@2x.png', image));
 	    	-moz-background-size:140px 59px; /*w & h of total ORIGINAL 72dpi image*/
              -ie-background-size:140px 59px;
               -o-background-size:140px 59px;
@@ -614,7 +614,7 @@ body.tall-logo nav.user {margin-left:0;}
 
 
 .tall-logo #logo {
-  background-image: url(<%= asset_path('retina/tall-logo-mobile_@2x.png') %>);
+  background-image: url(asset-path('retina/tall-logo-mobile_@2x.png', image));
             -moz-background-size:170px 185px; /*w & h of total image 72dpi image*/
              -ie-background-size:170px 185px;
               -o-background-size:170px 185px;
@@ -625,7 +625,7 @@ body.tall-logo nav.user {margin-left:0;}
 
 
 .search #search-trigger {
-  background-image:url(<%= asset_path('retina/search_@2x.png') %>);
+  background-image:url(asset-path('retina/search_@2x.png', image));
 	    	-moz-background-size:60px 30px; /*w & h of total ORIGINAL 72dpi image*/
              -ie-background-size:60px 30px;
               -o-background-size:60px 30px;
@@ -634,7 +634,7 @@ body.tall-logo nav.user {margin-left:0;}
 }
 
 #main_menu li.parent i {
-  background-image:url(<%= asset_path('retina/menu_arrow_@2x.png') %>);
+  background-image:url(asset-path('retina/menu_arrow_@2x.png', image));
 	    	-moz-background-size:20px 5px; /*w & h of total ORIGINAL 72dpi image*/
              -ie-background-size:20px 5px;
               -o-background-size:20px 5px;
@@ -659,7 +659,7 @@ body.tall-logo nav.user {margin-left:0;}
 {
 
 .tall-logo #logo {
-  background-image: url(<%= asset_path('retina/tall-logo-mobile_@2x.png') %>);
+  background-image: url(asset-path('retina/tall-logo-mobile_@2x.png', image));
             -moz-background-size:78px 85px; /*w & h of total image 72dpi image*/
              -ie-background-size:78px 85px;
               -o-background-size:78px 85px;
@@ -671,7 +671,7 @@ body.tall-logo nav.user {margin-left:0;}
 
 .mobile_nav a span
 {
-  background-image:url(<%= asset_path('retina/navtriggerbg_@2x.png') %>);
+  background-image:url(asset-path('retina/navtriggerbg_@2x.png', image));
 	    	-moz-background-size:80px 40px; /*w & h of total sprite 72dpi image*/
              -ie-background-size:80px 40px;
               -o-background-size:80px 40px;
