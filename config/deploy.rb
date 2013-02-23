@@ -15,7 +15,7 @@ set :use_sudo, false
 
 set :stages, %(staging production)
 set :default_stage, "production"
-set :rails_env, "production" #added for delayed job
+set :normalize_asset_timestamps, false
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
