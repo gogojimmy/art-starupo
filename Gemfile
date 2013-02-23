@@ -42,6 +42,7 @@ group :development do
   gem "binding_of_caller"
 end
 
+gem 'exceptional'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'capistrano_colors'
