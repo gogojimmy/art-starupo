@@ -13,6 +13,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def default_url
+    asset_path([version_name, 'default-avatar.jpg'].compact.join('-'))
+  end
+
   version :normal do
     process :fix_exif_rotation
     process :strip
