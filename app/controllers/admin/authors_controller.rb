@@ -37,7 +37,7 @@ class Admin::AuthorsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @author = Author.find(params[:id])
     @author.destroy
     redirect_to admin_authors_path, notice: '作者刪除成功'
