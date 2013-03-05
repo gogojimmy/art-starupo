@@ -3,4 +3,5 @@ class Author < ActiveRecord::Base
   has_many :paintings
 
   mount_uploader :avatar, AvatarUploader
+  validates_presence_of :avatar
 end
