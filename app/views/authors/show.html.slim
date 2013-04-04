@@ -3,7 +3,7 @@
     h2= @author.name
 .container.clearfix#main-content
   .row-fluid.portfolio-detail
-    .span7.offset1.image-slider role="image-slider"
+    .span12.image-slider role="image-slider"
       #carousel.flexslider
         .flex-viewport
           ul.slides
@@ -25,7 +25,7 @@
           li= link_to '下一張', '#', class: 'flex-next'
 
 
-    section.span4.project-description role="project-description"
+    section.span12.project-description role="project-description"
       h6 簡介：
       p
         = markdown @author.description

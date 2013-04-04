@@ -3,9 +3,9 @@
     h2= @painting.name
 #main-content.container.clearfix
   .row-fluid.portfolio-detail
-    .span7.offset1.image-slider
-      = image_tag(@painting.image.url)
-    section.span4.project-description role="project-description"
+    .span12.image-slider
+      = image_tag(@painting.image.url, class: 'painting', style: 'margin: 0 auto;')
+    section.span12.project-description role="project-description"
       = simple_format @painting.description
       h6 年份：
       p
