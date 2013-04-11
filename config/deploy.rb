@@ -16,6 +16,7 @@ set :use_sudo, false
 set :stages, %(staging production)
 set :default_stage, "production"
 set :normalize_asset_timestamps, false
+set :shared_children, shared_children + %w{public/uploads}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -25,7 +26,6 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-    run "ln -nsf #{shared_path}/uploads #{current_path}/public/uploads"
   end
 
   task :custom_setup, :roles => [:app] do
