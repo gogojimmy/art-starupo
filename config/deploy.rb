@@ -25,6 +25,7 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+    run "ln -nsf #{shared_path}/uploads #{current_path}/public/uploads"
   end
 
   task :custom_setup, :roles => [:app] do
