@@ -26,6 +26,7 @@
 
 
     section.span12.project-description role="project-description"
+      = image_tag @author.avatar_url(:normal), alt: @author.name, class: 'author-avatar'
       h6 簡介：
       p
         = markdown @author.description
