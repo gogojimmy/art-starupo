@@ -37,13 +37,13 @@
               input.span6 type="email" placeholder="kate@startupo.cc" name="email"
               button.btn.btn-primary 送出
         section
-          h4 配合藝術家
+          h4 凱華藝術家
           ul.image-widget.clearfix
             - footer_authors.each do |author|
               li
                 = link_to author_path(author) do
                   = image_tag(author.avatar.url(:thumb), alt: author.name)
-                  span= author.name
+                  p= author.name
       .span4
         section
           h4 最新消息
