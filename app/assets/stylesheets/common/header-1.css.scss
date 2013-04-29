@@ -10,7 +10,7 @@ body.tall-logo nav.user {margin-left:180px;}
 /* header / logo (desktop)
 ================================================== */
 #logo, #logo img { /* width and height of logo desktop NON retina - this is the regular size logo */
-	width:140px;
+	width:440px;
 	height:59px;
 }
 #logo {
@@ -18,7 +18,7 @@ body.tall-logo nav.user {margin-left:180px;}
     float: left;
     position:relative;
     margin-top:18px;
-    background:url(asset-path('logo.png', image)) no-repeat;
+    background:url(asset-path('LOGO-WEB.png', image)) no-repeat;
 }
 /* ie 7 fix*/
 .lt-ie8 #logo {position:absolute !important; top:0; left:0;}
