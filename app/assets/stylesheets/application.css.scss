@@ -19,3 +19,15 @@
  */
 
 img.author-avatar { margin: 0 auto; }
+
+ul.my_slides {
+  width: 400%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    width: 90px;
+    float: left;
+    display: block;
+  }
+}
