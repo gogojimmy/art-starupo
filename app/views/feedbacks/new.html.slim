@@ -1,10 +1,10 @@
 .hero-unit
   .container
-    h1 聯絡老師
+    h1 聯絡凱華
 #main-content.container.clearfix
   .row-fluid.reverse-order.contact-page
     p.clearfix
-      = "聯絡老師..."
+      = "聯絡凱華"
     hr
     .span5
       p.right
@@ -12,27 +12,26 @@
       p
         strong 聯絡資訊
         br
-        | blahblah
-        br
-        | 搭答答
+        | 台北市內湖區內湖路一段68號10樓
         br
         strong 電話:
-        a.tele href="tel:123-123-123" 123-123-123
+        a.tele href="tel:+886-2-66038983" (02)6603-8983
+        br
+        strong 傳真:
+        a.tele href="tel:+886-2-66038899" (02)6603-8899
         br
         strong email:
-        a href="#" 123@123.com
+        a href="contact@startupo.cc" contact@startupo.cc
+      /h3.short_headline.margin-top
+        /span 接收電子報
+      /p 輸入您的Email來隨時接收關於老師的消息
+      /.input-append
+        /input.span6 type="email" placeholder="Email" name="email"
+        /button.btn.btn-primary 送出
       h3.short_headline.margin-top
-        span 接收電子報
-      p 輸入您的Email來隨時接收關於老師的消息
-      .input-append
-        input.span6 type="email" placeholder="Email" name="email"
-        button.btn.btn-primary 送出
-      h3.short_headline.margin-top
-      ul.social
-        li.socion.facebook href="#" data-original-title="Facebook"
-        li.socion.twitterbird href="#" data-original-title="Twitter"
-        li.socion.linkedin href="#" data-original-title="Linkedin"
-        li.socion.dribbble href="#" data-original-title="dribble"
+      = render 'shared/facebook'
+      /ul.social
+        /li.socion.facebook href="https://www.facebook.com/KnwArt" data-original-title="Facebook"
     .span7
       = simple_form_for @feedback, remote: true, html: { id: 'contact-form', class: 'form-vertical', novalidate: 'novalidate' } do |f|
         fieldset
