@@ -4,7 +4,7 @@ require 'capistrano_colors'
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 
-set :rvm_ruby_string, 'ruby-1.9.3-p194'
+set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
 
 set :application, "art"
 set :repository,  "git@github.com:gogojimmy/art-starupo.git"
@@ -123,7 +123,7 @@ namespace :mysql do
   end
 end
 
-before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy', 'rvm:install_rvm'
 after 'rvm:install_rvm', 'rvm:install_ruby'
 after "deploy", "deploy:cleanup"
 after "deploy:migrations", "deploy:cleanup"
