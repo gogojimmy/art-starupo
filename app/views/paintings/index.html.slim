@@ -1,18 +1,53 @@
 #main-content.container.clearfix
   = will_paginate(@paintings, class: 'pagination-right no-margin pagination-mini')
-  .row-fluid
-    .filter-box.clearfix
-      span#filter
-        | 標籤
-        i.icon-sort
-    ul.gallery.four_col.clearfix.isotope
-      - @paintings.each do |painting|
-        li class="item #{painting.tags.map(&:name)*" "}"
-          = link_to painting_path(painting), class: 'hover' do
-            = image_tag(painting.image.url(:usual))
+  - @paintings.each_slice(4) do |a, b, c, d|
+    .row-fluid
+      ul.gallery
+        li class="item #{a.tags.map(&:name)*" "}"
+          = link_to painting_path(a), class: 'hover' do
+            = image_tag(a.image.url(:usual))
             span.plus
           .entry-summary
-            h4= painting.name
-            span.credit= link_to painting.author_name, author_path(painting.author)
+            h4= a.name
+            span.credit= link_to a.author_name, author_path(a.author)
+        - if b
+          li class="item #{b.tags.map(&:name)*" "}"
+            = link_to painting_path(b), class: 'hover' do
+              = image_tag(b.image.url(:usual))
+              span.plus
+            .entry-summary
+              h4= b.name
+              span.credit= link_to b.author_name, author_path(b.author)
+        - if c
+          li class="item #{c.tags.map(&:name)*" "}"
+            = link_to painting_path(c), class: 'hover' do
+              = image_tag(c.image.url(:usual))
+              span.plus
+            .entry-summary
+              h4= a.name
+              span.credit= link_to c.author_name, author_path(c.author)
+        - if d
+          li class="item #{d.tags.map(&:name)*" "}"
+            = link_to painting_path(d), class: 'hover' do
+              = image_tag(d.image.url(:usual))
+              span.plus
+            .entry-summary
+              h4= d.name
+              span.credit= link_to d.author_name, author_path(a.author)
+
+  /.row-fluid
+    /.filter-box.clearfix
+      /span#filter
+        /| 標籤
+        /i.icon-sort
+    /ul.gallery.four_col.clearfix.isotope
+      /- @paintings.each do |painting|
+        /li class="item #{painting.tags.map(&:name)*" "}"
+          /= link_to painting_path(painting), class: 'hover' do
+            /= image_tag(painting.image.url(:usual))
+            /span.plus
+          /.entry-summary
+            /h4= painting.name
+            /span.credit= link_to painting.author_name, author_path(painting.author)
 
   = will_paginate(@paintings, class: 'pagination-centered no-margin pagination-footer pagination-mini')

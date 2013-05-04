@@ -38,7 +38,7 @@
               li
                 = link_to author_path(author) do
                   = image_tag(author.avatar.url(:thumb), alt: author.name)
-                  p= author.name
+                  p.author_link= author.name
       .span4
         section
           h4 最新消息
