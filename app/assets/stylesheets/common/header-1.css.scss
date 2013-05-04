@@ -605,11 +605,11 @@ body.tall-logo nav.user {margin-left:0;}
 
 #logo {
   background-image:url(asset-path('retina/logo_@2x.png', image));
-	    	-moz-background-size:100% 100%; /*w & h of total ORIGINAL 72dpi image*/
-             -ie-background-size:100% 100%;
-              -o-background-size:100% 100%;
-       	 -webkit-background-size:100% 100%;
-                 background-size:100% 100%;
+	    	-moz-background-size:90% auto; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:90% auto;
+              -o-background-size:90% auto;
+       	 -webkit-background-size:90% auto;
+                 background-size:90% auto;
 }
 
 
