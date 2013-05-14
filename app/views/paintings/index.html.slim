@@ -24,7 +24,7 @@
               = image_tag(c.image.url(:usual))
               span.plus
             .entry-summary
-              h4= a.name
+              h4= c.name
               span.credit= link_to c.author_name, author_path(c.author)
         - if d
           li class="item #{d.tags.map(&:name)*" "}"
