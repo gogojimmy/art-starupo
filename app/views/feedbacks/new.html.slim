@@ -28,10 +28,6 @@
       /.input-append
         /input.span6 type="email" placeholder="Email" name="email"
         /button.btn.btn-primary 送出
-      h3.short_headline.margin-top
-      = render 'shared/facebook'
-      /ul.social
-        /li.socion.facebook href="https://www.facebook.com/KnwArt" data-original-title="Facebook"
     .span7
       = simple_form_for @feedback, remote: true, html: { id: 'contact-form', class: 'form-vertical', novalidate: 'novalidate' } do |f|
         fieldset
