@@ -37,7 +37,7 @@ class Admin::PaintingsController < ApplicationController
     end
   end
 
-  def desoroy
+  def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
     redirect_to admin_paintings_path, notice: '作品刪除成功'
