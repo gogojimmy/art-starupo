@@ -22,7 +22,6 @@ end
 
 gem 'jquery-rails'
 gem 'rspec-rails'
-gem 'devise'
 gem 'slim'
 gem 'compass-rails'
 gem 'devise'
@@ -42,7 +41,6 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'exception_notification'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'capistrano_colors'
