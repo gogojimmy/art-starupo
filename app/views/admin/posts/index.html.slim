@@ -21,6 +21,8 @@
                   = link_to edit_admin_post_path(post), :class => 'btn' do
                     = content_tag(:i, '', :class => 'icon icon-edit')
                     '  編輯
-                  = link_to admin_post_path(post), method: :delete, data: { confirm: '確認要刪除嗎？' } do
+                  '
+                  = link_to admin_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: '確認要刪除嗎？' } do
                     = content_tag(:i, '', class: 'icon icon-remove')
+                    ' 刪除
       = will_paginate @posts
